@@ -54,12 +54,12 @@ def main():
             #     display.Render(img)
             #     display.SetStatus("Object Detection | Network {:.0f} FPS".format(net.GetNetworkFPS()))
             for detection in detections:
-                class_id = names[detection.ClassID]
+                class_id = detection.ClassID
                 x1 = detection.Left/width 
                 y1 = detection.Top/height
                 x2 = detection.Right/width
                 y2 = detection.Bottom/height
-                if class_id in gv.DETECTIONS:
+                if class_id == 1:
                     color = transfer("")
                     # Si la persona detectada tiene algo verde
                     if color == "1":
