@@ -31,7 +31,7 @@ def detection_center(detection):
     return (center_x, center_y)
 
 net = jetson.inference.detectNet("ssd-mobilenet-v2", threshold=0.5)
-camera = jetson.utils.videoSource("/dev/video0")      # '/dev/video0' for V4L2 and 'csi://0' for csi
+camera = jetson.utils.videoSource("csi://0")      # '/dev/video0' for V4L2 and 'csi://0' for csi
 display = jetson.utils.videoOutput("display://0") # 'my_video.mp4' for file
 render_img = False
 robot = Robot()
@@ -61,33 +61,37 @@ def main():
                 # Si la persona detectada tiene algo verde
                 if color == "1":
                     check = True
-                    lower = np.array([0, 0, 0], np.uint8)
-                    upper = np.array([180, 255, 200], np.uint8)
+                    lower = np.array([0, 0, 330], np.uint8)
+                    upper = np.array([180, 255, 30], np.uint8)
+                    break
                 # Si la persona detectada tiene algo rojo
                 elif color == "2":
                     check = True
-                    lower = np.array([0, 0, 0], np.uint8)
-                    upper = np.array([180, 255, 200], np.uint8)
+                    lower = np.array([0, 0, 90], np.uint8)
+                    upper = np.array([180, 255, 150], np.uint8)
+                    break
                 # Si la persona detectada tiene algo azul
                 elif color == "3":
                     check = True
-                    lower = np.array([0, 0, 0], np.uint8)
-                    upper = np.array([180, 255, 200], np.uint8)
-                    
+                    lower = np.array([0, 0, 210], np.uint8)
+                    upper = np.array([180, 255, 270], np.uint8)
+                    break
                 else:
                     check = False
 
-            if check:
-                cropped_img = img[y1:y2, x1:x2,:]
-                hsv = cv2.cvtColor(cropped_img, cv2.COLOR_BGR2HSV)
-                mask = cv2.inRange(hsv, lower, upper)
-                unique_counts = dict(zip(np.unique(mask, return_counts=True)))
-                if unique_counts['0'] >= 30:
-                    center = detection_center(detection)
-                    robot.set_motors(
-                        float(speed + turn_gain * center[0]),
-                        float(speed - turn_gain * center[0])
-                    )
+        if check:
+            cropped_img = img[y1:y2, x1:x2,:]
+            hsv = cv2.cvtColor(cropped_img, cv2.COLOR_BGR2HSV)
+            mask = cv2.inRange(hsv, lower, upper)
+            unique_counts = dict(zip(np.unique(mask, return_counts=True)))
+            if unique_counts['0'] >= 30:
+                center = detection_center(detection)
+                robot.set_motors(
+                    float(speed + turn_gain * center[0]),
+                    float(speed - turn_gain * center[0])
+                )
+            else:
+                robot.set_motors(0,0)
 
 
                     
