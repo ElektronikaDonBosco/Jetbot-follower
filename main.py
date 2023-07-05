@@ -44,6 +44,7 @@ names = ['person']
 def main():
 
     while True:
+        check = False
         img = camera.Capture()
         if img != None:
             print('image is captured')
