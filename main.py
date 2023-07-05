@@ -1,7 +1,7 @@
 import argparse
 import socket
-import jetson.inference
-import jetson.utils
+import jetson_inference
+import jetson_utils
 import additionals.globals as gv
 
 import urllib.request
@@ -45,6 +45,8 @@ def main():
 
     while True:
         img = camera.Capture()
+        if img == None:
+            continue
         height, width, channels = img.shape
         detections = net.Detect(img)
         # if render_img:
