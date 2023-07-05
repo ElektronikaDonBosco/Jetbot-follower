@@ -30,8 +30,8 @@ def detection_center(detection):
     center_y = (bbox[1] + bbox[3]) / 2.0 - 0.5
     return (center_x, center_y)
 
-net = jetson.inference.detectNet("ssd-mobilenet-v2", threshold=0.5)
-camera = jetson.utils.videoSource("csi://0")      # '/dev/video0' for V4L2 and 'csi://0' for csi
+net = jetson_inference.detectNet("ssd-mobilenet-v2", threshold=0.5)
+camera = jetson_utils.videoSource("csi://0")      # '/dev/video0' for V4L2 and 'csi://0' for csi
 # display = jetson.utils.videoOutput("display://0") # 'my_video.mp4' for file
 # render_img = False
 robot = Robot()
