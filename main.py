@@ -11,17 +11,11 @@ import cv2
 from jetbot import Robot
 
 base = "http://192.168.1.47/" # Arduino prints the IP of the ESP8266
-urllib.request
 
-def transfer(my_url):   #use to send and receive data
+
+def transfer():   #use to send and receive data
     try:
-        result = urllib.request.Request(base + my_url)
-        result.add_header('User-Agent','Mozilla/5.0 (Windows; U; Windows NT 5.1; it; rv:1.8.1.11) Gecko/20071127 Firefox/2.0.0.11')
-        result = urllib.request.urlopen(result)
-        print(result.status())           # prints 404
-        print(result.read())           # prints page contents
-        print(result.headers.items()) 
-        n = result.read()
+        n = urllib.request.urlopen(base).read()
         n = n.decode("utf-8")
         return n
 
@@ -51,7 +45,7 @@ names = ['person']
 def main():
 
     while True:
-        color = transfer("/get_color")
+        color = transfer()
         print(type(color))
         # check = False
         # img = camera.Capture()

@@ -25,19 +25,19 @@ void loop(){
   {
     if (digitalRead(green)){
       Serial.println("green");
-      returnThisStr("1");
+      returnThisStr("green");
     }
     else if (digitalRead(blue)){
       Serial.println("blue");
-      returnThisStr("2");
+      returnThisStr("blue");
     }
     else if (digitalRead(red)){
       Serial.println("red");
-      returnThisStr("3");
+      returnThisStr("red");
     }
     else {
       Serial.println("none");
-      returnThisStr("0");
+      returnThisStr("none");
     }
   }
   
