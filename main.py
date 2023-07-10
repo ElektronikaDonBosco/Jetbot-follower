@@ -9,18 +9,28 @@ import http
 import numpy as np
 import cv2
 from jetbot import Robot
-
-base = "http://192.168.1.47/" # Arduino prints the IP of the ESP8266
+import requests
+import datetime
+from time import strftime, time
 
 
 def transfer(my_url):   #use to send and receive data
-    try:
-        n = urllib.request.urlopen(base + my_url).read()
-        return n
 
-    except http.client.HTTPException as e:
-        print("Error")
-        return e
+
+    #Replace with your sensor IP address
+    ip = '192.168.1.47'
+    url = 'http://' + ip + '/temp'
+
+    response = requests.get(url)
+
+    temp = response.text
+
+    timestamp = datetime.datetime.now()
+    timestamp_date = str(timestamp.strftime("%d-%m-%Y"))
+    timestamp_time = str(timestamp.strftime("%H:%M"))
+
+    entry = timestamp_date + "," + timestamp_time + "," + temp + "\n"
+    print(entry)
 
 
 # def detection_center(detection):
