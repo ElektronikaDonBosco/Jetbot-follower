@@ -23,15 +23,22 @@ void loop(){
 
   if(CheckNewReq() == 1)
   {
-    n = getPath();
+    path = getPath();
     if (digitalRead(green)){
+      Serial.println("green");
       returnThisStr("1");
     }
-    else if (digitalRead(green)){
+    else if (digitalRead(blue)){
+      Serial.println("blue");
       returnThisStr("2");
     }
-    else if (digitalRead(green)){
+    else if (digitalRead(red)){
+      Serial.println("red");
       returnThisStr("3");
+    }
+    else {
+      Serial.println("none");
+      returnThisStr("0");
     }
     
   }

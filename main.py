@@ -10,7 +10,7 @@ import numpy as np
 import cv2
 from jetbot import Robot
 
-base = "http://192.168.1.107/" # Arduino prints the IP of the ESP8266
+base = "http://192.168.1.47/" # Arduino prints the IP of the ESP8266
 
 
 def transfer(my_url):   #use to send and receive data
@@ -47,7 +47,6 @@ def main():
         check = False
         img = camera.Capture()
         if img != None:
-            print('image is captured')
             height, width, channels = img.shape
             detections = net.Detect(img)
             # if render_img:
@@ -86,8 +85,9 @@ def main():
                 cropped_img = img[y1:y2, x1:x2,:]
                 hsv = cv2.cvtColor(cropped_img, cv2.COLOR_BGR2HSV)
                 mask = cv2.inRange(hsv, lower, upper)
-                unique_counts = dict(zip(np.unique(mask, return_counts=True)))
-                if unique_counts['0'] >= 30:
+                mask_on_counts = np.sum(mask==255)
+                print(mask_on_counts)
+                if mask_on_counts >= 30:
                     center = detection_center(detection)
                     robot.set_motors(
                         float(speed + turn_gain * center[0]),
@@ -96,7 +96,8 @@ def main():
                 else:
                     robot.set_motors(0,0)
 
-
+        else:            
+            print('image is not captured')
                     
             
     
