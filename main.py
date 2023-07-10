@@ -64,19 +64,19 @@ def main():
                     color = transfer("")
                     print(type(color))
                     # Si la persona detectada tiene algo verde
-                    if color == "1":
+                    if color == "/1":
                         check = True
                         lower = np.array([0, 0, 330], np.uint8)
                         upper = np.array([180, 255, 30], np.uint8)
                         break
                     # Si la persona detectada tiene algo rojo
-                    elif color == "2":
+                    elif color == "/2":
                         check = True
                         lower = np.array([0, 0, 90], np.uint8)
                         upper = np.array([180, 255, 150], np.uint8)
                         break
                     # Si la persona detectada tiene algo azul
-                    elif color == 3:
+                    elif color == "/3":
                         check = True
                         lower = np.array([0, 0, 210], np.uint8)
                         upper = np.array([180, 255, 270], np.uint8)
