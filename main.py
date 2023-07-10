@@ -14,15 +14,12 @@ base = "http://192.168.1.47/" # Arduino prints the IP of the ESP8266
 
 
 def transfer():   #use to send and receive data
-    try:
-        n = urllib.request.urlopen(base).read()
-        n = n.decode("utf-8")
-        return n
+        n = urllib.request.urlopen(base)
+        u = n.read()
+        nu = u.decode("utf-8")
+        return nu
 
-    except http.client.HTTPException as e:
-        print(n)
-        print("Error")
-        return e
+
 
 
 def detection_center(detection):
