@@ -17,6 +17,7 @@ def transfer(my_url):   #use to send and receive data
     try:
         n = urllib.request.urlopen(base + my_url).read()
         n = n.decode("utf-8")
+        print(n)
         return n
 
     except http.client.HTTPException as e:
