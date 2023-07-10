@@ -20,6 +20,7 @@ def transfer(my_url):   #use to send and receive data
         return n
 
     except http.client.HTTPException as e:
+        print("Error")
         return e
 
 
