@@ -4,7 +4,7 @@ import jetson_inference
 import jetson_utils
 import additionals.globals as gv
 
-import urllib.request
+import requests
 import http
 import numpy as np
 import cv2
@@ -16,11 +16,9 @@ base = "192.168.1.47" # Arduino prints the IP of the ESP8266
 
 
 def transfer():   #use to send and receive data
-        n = urllib.request.urlopen(base)
-        print(n.status)
-        print(n.read())
-        nu = n.read().decode("utf-8")
-        return nu
+       resp = requests.get('http://www.mywebsite.com/user')
+       n = resp.text
+       print(n)
 
 
 
