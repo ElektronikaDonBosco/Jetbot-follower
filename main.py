@@ -47,6 +47,7 @@ def main():
         check = False
         img = camera.Capture()
         if img != None:
+            print(' ')
             height, width, channels = img.shape
             detections = net.Detect(img)
             # if render_img:
@@ -95,9 +96,6 @@ def main():
                     )
                 else:
                     robot.set_motors(0,0)
-
-        else:            
-            print('image is not captured')
                     
             
     
