@@ -87,7 +87,7 @@ def main():
                 hsv = cv2.cvtColor(cropped_img, cv2.COLOR_BGR2HSV)
                 mask = cv2.inRange(hsv, lower, upper)
                 mask_on_counts = np.sum(mask==255)
-                print(mask_on_counts)
+                print("mask_on_counts: {}".format(mask_on_counts))
                 if mask_on_counts >= 30:
                     center = detection_center(detection)
                     robot.set_motors(
