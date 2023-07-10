@@ -31,8 +31,8 @@ camera = jetson_utils.videoSource("csi://0")      # '/dev/video0' for V4L2 and '
 # render_img = False
 robot = Robot()
 
-speed = 0.5
-turn_gain = 0.8
+speed = 0.1
+turn_gain = 0.1
 
 names = ['person']
 
