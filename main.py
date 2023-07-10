@@ -21,8 +21,9 @@ def transfer(my_url):   #use to send and receive data
         return n
 
     except http.client.HTTPException as e:
+        n = e
         print("ERROR: {}".format(e))
-        return 
+        return n
 
 def detection_center(detection):
     """Computes the center x, y coordinates of the object"""
