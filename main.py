@@ -56,6 +56,7 @@ def main():
             #     display.Render(img)
             #     display.SetStatus("Object Detection | Network {:.0f} FPS".format(net.GetNetworkFPS()))
             for detection in detections:
+                detected = detection
                 class_id = detection.ClassID
                 x1 = detection.Left/width 
                 y1 = detection.Top/height
@@ -94,7 +95,7 @@ def main():
                 mask_on_counts = np.sum(mask==255)
                 print("mask_on_counts: {}".format(mask_on_counts))
                 if mask_on_counts >= 0:
-                    center = detection_center(detection)
+                    center = detection_center(detected)
                     robot.set_motors(
                         float(speed + turn_gain * center[0]),
                         float(speed - turn_gain * center[0])
