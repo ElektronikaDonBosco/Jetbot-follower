@@ -61,6 +61,7 @@ def main():
                 y2 = detection.Bottom/height
                 if class_id == 1:
                     color = transfer("")
+                    print(color)
                     # Si la persona detectada tiene algo verde
                     if color == "1":
                         check = True
