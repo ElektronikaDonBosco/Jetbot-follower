@@ -90,7 +90,7 @@ def main():
                 cropped_img = cv_img[int(y1*height):int(y2*height), int(x1*width):int(x2*width),:]
                 hsv = cv2.cvtColor(cropped_img, cv2.COLOR_BGR2HSV)
                 mask = cv2.inRange(hsv, lower, upper)
-                print(mask)
+                print(np.unique(mask))
                 mask_on_counts = np.sum(mask==255)
                 print("mask_on_counts: {}".format(mask_on_counts))
                 if mask_on_counts >= 30:
