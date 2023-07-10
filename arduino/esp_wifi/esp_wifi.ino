@@ -23,24 +23,21 @@ void loop(){
 
   if(CheckNewReq() == 1)
   {
-    path = getPath();
-    if (path == "/get_color"){
-      if (digitalRead(green)){
-        Serial.println("green");
-        returnThisStr("1");
-      }
-      else if (digitalRead(blue)){
-        Serial.println("blue");
-        returnThisStr("2");
-      }
-      else if (digitalRead(red)){
-        Serial.println("red");
-        returnThisStr("3");
-      }
-      else {
-        Serial.println("none");
-        returnThisStr("0");
-      }
+    if (digitalRead(green)){
+      Serial.println("green");
+      returnThisStr("1");
+    }
+    else if (digitalRead(blue)){
+      Serial.println("blue");
+      returnThisStr("2");
+    }
+    else if (digitalRead(red)){
+      Serial.println("red");
+      returnThisStr("3");
+    }
+    else {
+      Serial.println("none");
+      returnThisStr("0");
     }
   }
   

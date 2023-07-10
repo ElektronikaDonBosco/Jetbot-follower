@@ -82,8 +82,7 @@ void waitUntilNewReq(){
 }
 
 void returnThisStr(String final_data){
-  String s;
-  client.print(final_data);
+  client.print(final_data.c_str());
 }
 void returnThisInt(int final_data){
   returnThisStr(String(final_data));
