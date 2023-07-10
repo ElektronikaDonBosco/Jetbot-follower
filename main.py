@@ -23,91 +23,82 @@ def transfer(my_url):   #use to send and receive data
 
     response = requests.get(url)
 
-    temp = response.text
-
-    timestamp = datetime.datetime.now()
-    timestamp_date = str(timestamp.strftime("%d-%m-%Y"))
-    timestamp_time = str(timestamp.strftime("%H:%M"))
-
-    entry = timestamp_date + "," + timestamp_time + "," + temp + "\n"
-    print(entry)
+    return response.text
 
 
-# def detection_center(detection):
-#     """Computes the center x, y coordinates of the object"""
-#     bbox = detection['bbox']
-#     center_x = (bbox[0] + bbox[2]) / 2.0 - 0.5
-#     center_y = (bbox[1] + bbox[3]) / 2.0 - 0.5
-#     return (center_x, center_y)
+def detection_center(detection):
+    """Computes the center x, y coordinates of the object"""
+    bbox = detection['bbox']
+    center_x = (bbox[0] + bbox[2]) / 2.0 - 0.5
+    center_y = (bbox[1] + bbox[3]) / 2.0 - 0.5
+    return (center_x, center_y)
 
-# net = jetson_inference.detectNet("ssd-mobilenet-v2", threshold=0.5)
-# camera = jetson_utils.videoSource("csi://0")      # '/dev/video0' for V4L2 and 'csi://0' for csi
-# # display = jetson.utils.videoOutput("display://0") # 'my_video.mp4' for file
-# # render_img = False
-# robot = Robot()
+net = jetson_inference.detectNet("ssd-mobilenet-v2", threshold=0.5)
+camera = jetson_utils.videoSource("csi://0")      # '/dev/video0' for V4L2 and 'csi://0' for csi
+# display = jetson.utils.videoOutput("display://0") # 'my_video.mp4' for file
+# render_img = False
+robot = Robot()
 
-# speed = 0.5
-# turn_gain = 0.8
+speed = 0.5
+turn_gain = 0.8
 
-# names = ['person']
+names = ['person']
 
 def main():
 
     while True:
-        color = transfer("/get_color")
-        print(color)
-        # check = False
-        # img = camera.Capture()
-        # if img != None:
-        #     height, width, channels = img.shape
-        #     detections = net.Detect(img)
-        #     # if render_img:
-        #     #     display.Render(img)
-        #     #     display.SetStatus("Object Detection | Network {:.0f} FPS".format(net.GetNetworkFPS()))
-        #     for detection in detections:
-        #         class_id = detection.ClassID
-        #         x1 = detection.Left/width 
-        #         y1 = detection.Top/height
-        #         x2 = detection.Right/width
-        #         y2 = detection.Bottom/height
-        #         if class_id == 1:
-        #             color = transfer("/get_color")
-        #             print(type(color))
-        #             # Si la persona detectada tiene algo verde
-        #             if color == "/1":
-        #                 check = True
-        #                 lower = np.array([0, 0, 330], np.uint8)
-        #                 upper = np.array([180, 255, 30], np.uint8)
-        #                 break
-        #             # Si la persona detectada tiene algo rojo
-        #             elif color == "/2":
-        #                 check = True
-        #                 lower = np.array([0, 0, 90], np.uint8)
-        #                 upper = np.array([180, 255, 150], np.uint8)
-        #                 break
-        #             # Si la persona detectada tiene algo azul
-        #             elif color == "/3":
-        #                 check = True
-        #                 lower = np.array([0, 0, 210], np.uint8)
-        #                 upper = np.array([180, 255, 270], np.uint8)
-        #                 break
-        #             else:
-        #                 check = False
-        #     print(check)
-        #     if check:
-        #         cropped_img = img[y1:y2, x1:x2,:]
-        #         hsv = cv2.cvtColor(cropped_img, cv2.COLOR_BGR2HSV)
-        #         mask = cv2.inRange(hsv, lower, upper)
-        #         mask_on_counts = np.sum(mask==255)
-        #         print("mask_on_counts: {}".format(mask_on_counts))
-        #         if mask_on_counts >= 30:
-        #             center = detection_center(detection)
-        #             robot.set_motors(
-        #                 float(speed + turn_gain * center[0]),
-        #                 float(speed - turn_gain * center[0])
-        #             )
-        #         else:
-        #             robot.set_motors(0,0)
+        check = False
+        img = camera.Capture()
+        if img != None:
+            height, width, channels = img.shape
+            detections = net.Detect(img)
+            # if render_img:
+            #     display.Render(img)
+            #     display.SetStatus("Object Detection | Network {:.0f} FPS".format(net.GetNetworkFPS()))
+            for detection in detections:
+                class_id = detection.ClassID
+                x1 = detection.Left/width 
+                y1 = detection.Top/height
+                x2 = detection.Right/width
+                y2 = detection.Bottom/height
+                if class_id == 1:
+                    color = transfer("/get_color")
+                    print(type(color))
+                    # Si la persona detectada tiene algo verde
+                    if color == "green":
+                        check = True
+                        lower = np.array([0, 0, 330], np.uint8)
+                        upper = np.array([180, 255, 30], np.uint8)
+                        break
+                    # Si la persona detectada tiene algo rojo
+                    elif color == "blue":
+                        check = True
+                        lower = np.array([0, 0, 90], np.uint8)
+                        upper = np.array([180, 255, 150], np.uint8)
+                        break
+                    # Si la persona detectada tiene algo azul
+                    elif color == "red":
+                        check = True
+                        lower = np.array([0, 0, 210], np.uint8)
+                        upper = np.array([180, 255, 270], np.uint8)
+                        break
+                    else:
+                        check = False
+            print(check)
+            if check:
+                cropped_img = img[y1:y2, x1:x2,:]
+                hsv = cv2.cvtColor(cropped_img, cv2.COLOR_BGR2HSV)
+                mask = cv2.inRange(hsv, lower, upper)
+                mask_on_counts = np.sum(mask==255)
+                print("mask_on_counts: {}".format(mask_on_counts))
+                if mask_on_counts >= 30:
+                    center = detection_center(detection)
+                    robot.set_motors(
+                        float(speed + turn_gain * center[0]),
+                        float(speed - turn_gain * center[0])
+                    )
+                else:
+                    robot.set_motors(0,0)
                     
             
     
