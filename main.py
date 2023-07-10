@@ -56,7 +56,7 @@ def main():
                 x2 = detection.Right/width
                 y2 = detection.Bottom/height
                 if class_id == 1:
-                    color = transfer("")
+                    color = transfer("/get_color")
                     print(type(color))
                     # Si la persona detectada tiene algo verde
                     if color == "/1":
