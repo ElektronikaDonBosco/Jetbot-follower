@@ -12,7 +12,7 @@ from jetbot import Robot
 
 import http
 
-base = "https://192.168.1.47/" # Arduino prints the IP of the ESP8266
+base = "http://192.168.1.47/" # Arduino prints the IP of the ESP8266
 
 
 def transfer():   #use to send and receive data
