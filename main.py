@@ -25,14 +25,6 @@ def transfer(my_url):   #use to send and receive data
 
     return response.text
 
-
-def detection_center(detection):
-    """Computes the center x, y coordinates of the object"""
-    bbox = detection['bbox']
-    center_x = (bbox[0] + bbox[2]) / 2.0 - 0.5
-    center_y = (bbox[1] + bbox[3]) / 2.0 - 0.5
-    return (center_x, center_y)
-
 net = jetson_inference.detectNet("ssd-mobilenet-v2", threshold=0.5)
 camera = jetson_utils.videoSource("csi://0")      # '/dev/video0' for V4L2 and 'csi://0' for csi
 # display = jetson.utils.videoOutput("display://0") # 'my_video.mp4' for file
@@ -56,7 +48,6 @@ def main():
             #     display.Render(img)
             #     display.SetStatus("Object Detection | Network {:.0f} FPS".format(net.GetNetworkFPS()))
             for detection in detections:
-                detected = detection
                 class_id = detection.ClassID
                 x1 = detection.Left/width 
                 y1 = detection.Top/height
@@ -95,10 +86,11 @@ def main():
                 mask_on_counts = np.sum(mask==255)
                 print("mask_on_counts: {}".format(mask_on_counts))
                 if mask_on_counts >= 0:
-                    center = detection_center(detected)
+                    center_x = (x1 + x2) / 2.0 - 0.5
+                    center_y = (y1 + y2) / 2.0 - 0.5
                     robot.set_motors(
-                        float(speed + turn_gain * center[0]),
-                        float(speed - turn_gain * center[0])
+                        float(speed + turn_gain * center_x),
+                        float(speed - turn_gain * center_x)
                     )
                 else:
                     robot.set_motors(0,0)
