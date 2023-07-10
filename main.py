@@ -46,7 +46,7 @@ def main():
 
     while True:
         color = transfer("/get_color")
-        print(type(color))
+        print(color)
         # check = False
         # img = camera.Capture()
         # if img != None:

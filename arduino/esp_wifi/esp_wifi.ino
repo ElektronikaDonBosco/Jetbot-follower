@@ -33,7 +33,7 @@ void loop(){
     }
     else if (digitalRead(red)){
       Serial.println("red");
-      returnThisStr("red");
+      returnThisStr("""HTTP/1.1 200 OK Data: red; """);
     }
     else {
       Serial.println("none");
