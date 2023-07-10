@@ -81,7 +81,7 @@ def main():
                         break
                     else:
                         check = False
-
+            print(check)
             if check:
                 cropped_img = img[y1:y2, x1:x2,:]
                 hsv = cv2.cvtColor(cropped_img, cv2.COLOR_BGR2HSV)
