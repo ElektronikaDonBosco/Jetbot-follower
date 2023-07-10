@@ -10,13 +10,16 @@ import numpy as np
 import cv2
 from jetbot import Robot
 
+import http
+
 base = "http://192.168.1.47/" # Arduino prints the IP of the ESP8266
 
 
 def transfer():   #use to send and receive data
         n = urllib.request.urlopen(base)
-        u = n.read()
-        nu = u.decode("utf-8")
+        print(n.status)
+        print(n.read())
+        nu = n.read().decode("utf-8")
         return nu
 
 
