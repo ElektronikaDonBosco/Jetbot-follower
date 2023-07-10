@@ -25,11 +25,11 @@ void loop(){
   {
     if (digitalRead(green)){
       Serial.println("green");
-      returnThisStr("green");
+      returnThisStr("/green");
     }
     else if (digitalRead(blue)){
       Serial.println("blue");
-      returnThisStr("blue");
+      returnThisStr("/blue");
     }
     else if (digitalRead(red)){
       Serial.println("red");
@@ -37,7 +37,7 @@ void loop(){
     }
     else {
       Serial.println("none");
-      returnThisStr("none");
+      returnThisStr("/none");
     }
   }
   

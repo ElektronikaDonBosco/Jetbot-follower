@@ -24,23 +24,23 @@ def transfer(my_url):   #use to send and receive data
         return e
 
 
-def detection_center(detection):
-    """Computes the center x, y coordinates of the object"""
-    bbox = detection['bbox']
-    center_x = (bbox[0] + bbox[2]) / 2.0 - 0.5
-    center_y = (bbox[1] + bbox[3]) / 2.0 - 0.5
-    return (center_x, center_y)
+# def detection_center(detection):
+#     """Computes the center x, y coordinates of the object"""
+#     bbox = detection['bbox']
+#     center_x = (bbox[0] + bbox[2]) / 2.0 - 0.5
+#     center_y = (bbox[1] + bbox[3]) / 2.0 - 0.5
+#     return (center_x, center_y)
 
-net = jetson_inference.detectNet("ssd-mobilenet-v2", threshold=0.5)
-camera = jetson_utils.videoSource("csi://0")      # '/dev/video0' for V4L2 and 'csi://0' for csi
-# display = jetson.utils.videoOutput("display://0") # 'my_video.mp4' for file
-# render_img = False
-robot = Robot()
+# net = jetson_inference.detectNet("ssd-mobilenet-v2", threshold=0.5)
+# camera = jetson_utils.videoSource("csi://0")      # '/dev/video0' for V4L2 and 'csi://0' for csi
+# # display = jetson.utils.videoOutput("display://0") # 'my_video.mp4' for file
+# # render_img = False
+# robot = Robot()
 
-speed = 0.5
-turn_gain = 0.8
+# speed = 0.5
+# turn_gain = 0.8
 
-names = ['person']
+# names = ['person']
 
 def main():
 
