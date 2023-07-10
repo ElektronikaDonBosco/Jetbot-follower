@@ -93,7 +93,7 @@ def main():
                 print(np.unique(mask))
                 mask_on_counts = np.sum(mask==255)
                 print("mask_on_counts: {}".format(mask_on_counts))
-                if mask_on_counts >= 30:
+                if mask_on_counts >= 0:
                     center = detection_center(detection)
                     robot.set_motors(
                         float(speed + turn_gain * center[0]),
