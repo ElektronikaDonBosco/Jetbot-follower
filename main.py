@@ -63,7 +63,7 @@ def main():
                 y2 = detection.Bottom/height
                 if class_id == 1:
                     color = transfer("/get_color")
-                    print(type(color))
+                    print(color)
                     # Si la persona detectada tiene algo verde
                     if color == "green":
                         check = True
@@ -86,7 +86,11 @@ def main():
                         check = False
             print(check)
             if check:
-                cropped_img = img[int(y1*height):int(y2*height), int(x1*width):int(x2*width),:]
+                crop_roi = (int(y1*height):int(y2*height), int(x1*width):int(x2*width))
+                cropped_img = jetson_utils.cudaAllocMapped(width=crop_roi[2] - crop_roi[0],
+                                              height=crop_roi[3] - crop_roi[1],
+                                              format=img.format)
+                jetson_utils.cudaCrop(img, cropped_img, crop_roi)
                 hsv = cv2.cvtColor(cropped_img, cv2.COLOR_BGR2HSV)
                 mask = cv2.inRange(hsv, lower, upper)
                 mask_on_counts = np.sum(mask==255)
