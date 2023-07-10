@@ -75,7 +75,7 @@ def main():
                         upper = np.array([180, 255, 150], np.uint8)
                         break
                     # Si la persona detectada tiene algo azul
-                    elif color == "3":
+                    elif int(color) == 3:
                         check = True
                         lower = np.array([0, 0, 210], np.uint8)
                         upper = np.array([180, 255, 270], np.uint8)
