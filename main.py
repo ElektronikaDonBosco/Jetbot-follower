@@ -16,7 +16,7 @@ base = "http://192.168.1.47/" # Arduino prints the IP of the ESP8266
 def transfer(my_url):   #use to send and receive data
     try:
         result = urllib.request.urlopen(base + my_url)
-        print(result.status)           # prints 404
+        print(result.status())           # prints 404
         print(result.read())           # prints page contents
         print(result.headers.items()) 
         n = result.read()
