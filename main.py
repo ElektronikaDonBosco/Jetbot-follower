@@ -86,7 +86,7 @@ def main():
                         check = False
             print(check)
             if check:
-                cropped_img = img[y1:y2, x1:x2,:]
+                cropped_img = img[int(y1*height):int(y2*height), int(x1*width):int(x2*width),:]
                 hsv = cv2.cvtColor(cropped_img, cv2.COLOR_BGR2HSV)
                 mask = cv2.inRange(hsv, lower, upper)
                 mask_on_counts = np.sum(mask==255)
