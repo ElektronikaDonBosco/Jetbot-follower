@@ -86,7 +86,7 @@ def main():
                         check = False
             print(check)
             if check:
-                crop_roi = (int(y1*height):int(y2*height), int(x1*width):int(x2*width))
+                crop_roi = (int(y1*height), int(y2*height), int(x1*width), int(x2*width))
                 cropped_img = jetson_utils.cudaAllocMapped(width=crop_roi[2] - crop_roi[0],
                                               height=crop_roi[3] - crop_roi[1],
                                               format=img.format)
