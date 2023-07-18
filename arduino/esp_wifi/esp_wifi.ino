@@ -2,9 +2,9 @@
 #include <ESP8266WiFi.h>
 #include <ESP8266WebServer.h>
 
-int green = 16; // pin D0
-int blue = 5; // pin D1
-int red = 4; // pin D2
+int cat = 16; // pin D0
+int dog = 5; // pin D1
+int person = 4; // pin D2
 
 String path = "nothing";
 ESP8266WebServer server(80);
@@ -17,9 +17,9 @@ void setup() {
    WiFi.begin("MOVISTAR_BC90","Ar2pVbtfKNoVeqncYnjY");  // Wifi details connect to
   // initialize GPIO 5 as an output
 
-  pinMode(green, INPUT);
-  pinMode(blue, INPUT);
-  pinMode(red, INPUT);
+  pinMode(cat, INPUT);
+  pinMode(dog, INPUT);
+  pinMode(person, INPUT);
 
   while (WiFi.status() != WL_CONNECTED) {  
 
@@ -45,17 +45,17 @@ void loop() {
 
 void handleColor() {
   //delay(2000);
-  if (digitalRead(green)){
-    Serial.println("green");
-    path = "green";
+  if (digitalRead(cat)){
+    Serial.println("cat");
+    path = "cat";
   }
-  else if (digitalRead(blue)){
-    Serial.println("blue");
-    path = "/blue";
+  else if (digitalRead(dog)){
+    Serial.println("dog");
+    path = "/dog";
   }
-  else if (digitalRead(red)){
-    Serial.println("red");
-    path = "red";
+  else if (digitalRead(person)){
+    Serial.println("person");
+    path = "person";
   }
   else {
     Serial.println("none");

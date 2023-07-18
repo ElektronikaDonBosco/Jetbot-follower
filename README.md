@@ -4,84 +4,13 @@ Procedure to make inference in Jetson Nano.
 
 ## Set up Jetson Nano
 
-Go to [this](https://jetbot.org/master/) step by step tutorial.
+Go to [this](https://jetbot.org/master/) step by step tutorial with [this](https://drive.google.com/file/d/1G5nw0o3Q6E08xZM99ZfzQAe7-qAXxzHN/view) image.
 
 ## Install dependecies and download packages
 
-Firs of all we will have to install python dependecies. For that open a terminal an execute the followin commands.
+Firs of all we will have to go to notebooks and follow this tutorial for download the file [ssd_mobilenet_v2_coco.engine](https://drive.google.com/file/d/1RnNBHPDphIOWwHCSfeMCWQ7XN3w3tKFD/view) or copy from this repo. After that copy the notebooks and the file downloaded in the folder you copied the engine file and run the notebooks.
 
-```bash
-sudo apt-get install v4l2loopback-dkms
-sudo modprobe v4l2loopback
-```
-
-```bash
-git clone http://github.com/NVIDIA-AI-IOT/jetbot.git
-cd jetbot
-./scripts/configure_jetson.sh
-
-```
-
-```bash
-./scripts/enable_swap.sh
-```
-
-```bash
-cd docker
-./enable.sh $HOME   # we'll use home directory as working directory, set this as you please.
-```
-
-```bash
-git clone --recursive https://github.com/NVIDIA-AI-IOT/jetbot.git
-cd ~/jetbot
-sudo python3 setup.py install
-```
-
-```bash
-python3 -m pip install --upgrade --user pip
-python3 -m pip install traitlets setuptools ipywidgets
-```
-
-```bash
-sudo apt-get install libzmq3-dev
-```
-
-```bash
-sudo apt-get update
-sudo apt-get install git cmake libpython3-dev python3-numpy
-git clone --recursive --depth=1 https://github.com/dusty-nv/jetson-inference
-cd ~/jetson-inference
-mkdir build
-cd build
-cmake ../
-make -j2
-sudo make install
-sudo ldconfig
-```
-
-If pytorch is not installed previously
-
-```bash
-./install-pytorch.sh
-```
-
-
-## Prepare the docker container
-
-First of all we need to clone the repository of jetson inference and go to the folder jetson_inference.
-
-```bash
-cd ~/
-git clone https://github.com/mikelalda/Jetbot-follower.git
-
-```
-
-Each time to run the container follow the next steps:
-
-```bash
-cd ~/Jetbot-follower
-python3 main.py
-```
+If anyone wants to see the labels, check [this](https://github.com/tensorflow/models/blob/master/research/object_detection/data/mscoco_complete_label_map.pbtxt) site.
 
 ## Run inference
 
@@ -92,10 +21,3 @@ In the file Jetbot-follower/main.py we need to change the line 13 with ESP8266 I
 Also the change the wifi of the ESP8266 in line 13 of Arduino code.
 
 ![](assets/2023-05-03_101304.png)
-
-Once having done all the steps, run this in the docker terminal.
-
-```bash
-cd /Jetbot-follower
-python3 main.py
-```
