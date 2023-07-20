@@ -25,9 +25,11 @@ We used this image of the Operating System to make [this](https://drive.google.c
 
 Turn on the Jetbot and it will show its IP in the display. Write that IP followed by ":8888" in a web browser. That way you will be able to see the folder of the Jetbot.
 
-Download the files of this repository (coco file was copied from [ssd_mobilenet_v2_coco.engine](https://drive.google.com/file/d/1RnNBHPDphIOWwHCSfeMCWQ7XN3w3tKFD/view)) to a folder of the Jetbot.
+Download the files of this repository to a folder of the Jetbot. Coco file was copied from [ssd_mobilenet_v2_coco.engine(https://drive.google.com/file/d/1RnNBHPDphIOWwHCSfeMCWQ7XN3w3tKFD/view).
 
 First of all we will have to go to notebooks and follow this tutorial for download the file [ssd_mobilenet_v2_coco.engine](https://drive.google.com/file/d/1RnNBHPDphIOWwHCSfeMCWQ7XN3w3tKFD/view) or copy from this repo. After that copy the notebooks and the file downloaded in the folder you copied the engine file and run the notebooks.
+
+
 
 If anyone wants to see the labels, check [this](https://github.com/tensorflow/models/blob/master/research/object_detection/data/mscoco_complete_label_map.pbtxt) site.
 
