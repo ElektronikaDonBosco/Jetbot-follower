@@ -31,6 +31,10 @@ If anyone wants to see the labels of the detected objetcs, check [this](https://
 
 ## Run inference
 
+1 - The NodeMCU must connect to the Wi-Fi to get information from the jetson nano. We must set the Wi-Fi network and the password of the network in the NodeMCU code. It will be necessary to change the Wi-Fi of the ESP8266 (NodeMCU) in line 13 of the code. You have that code inside the folder "Arduino". When you transfer the program to the NodeMCU device it will send the IP in the serie port, if you open the SerialMonitor you will see the IP. It is neccessary to know the IP in the next point.
+
+![](assets/2023-05-03_101304.png)
+
 Turn on the Jetbot and it will show its IP in the display. Write that IP followed by ":8888" in a web browser. It will ask for the password, by default password is jetbot.
 
 Go to the folder where we copied the files of this repository, for example, Documents. Select the document named: "live_demo_labels.ipynb".
