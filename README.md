@@ -15,7 +15,7 @@ We will use a NodeMCU with three switched to indicate the object to follow, that
 ## -ESP826MOD (NodeMCU) Sensor Module Schematic Pinout
 <img src="https://github.com/ElektronikaDonBosco/Blind-eye/blob/master/60893535def1e6e04c6f55b835bcd917.jpg" width=50% height=50%>
 
-## Set up Jetson Nano
+## Set up Jetbot
 
 Go to [this](https://jetbot.org/master/) step by step tutorial to understand the Jetbot.
 
