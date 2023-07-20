@@ -6,9 +6,9 @@ In this project we will use a Jetbot (which has a Jatson nano inside) to detect 
 We will use a NodeMCU with three switched to indicate the object to follow, that way, when we activate the "people" switch it will start detecting and following people. The comunicaton between the Jetbot and the NodeMCU will be throught a WI-Fi connection.
 
 ## Material used in the project
--Jetbot
+- Jetbot
 
--ESP826MOD Sensor module (NodeMCU)
+- ESP826MOD Sensor module (NodeMCU)
 
 - Switches and resistors
 
