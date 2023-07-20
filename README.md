@@ -31,6 +31,10 @@ If anyone wants to see the labels of the detected objetcs, check [this](https://
 
 ## Run inference
 
+Turn on the Jetbot and it will show its IP in the display. Write that IP followed by ":8888" in a web browser. It will ask for the password, by default password is jetbot.
+
+Go to the folder where we copied the files of this repository, for example, Documents. Select the document named: "live_demo_labels.ipynb".
+
 In the file Jetbot-follower/main.py we need to change the line 13 with ESP8266 IP address.
 
 ![](assets/2023-05-03_101412.png)
