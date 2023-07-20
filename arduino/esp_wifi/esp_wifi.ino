@@ -1,17 +1,13 @@
-
 #include <ESP8266WiFi.h>
 #include <ESP8266WebServer.h>
 
 int cat = 16; // pin D0
 int dog = 5; // pin D1
 int person = 4; // pin D2
-
 String path = "nothing";
 ESP8266WebServer server(80);
 
-
 //---SETUP---
-
 void setup() {
   Serial.begin(9600);
    WiFi.begin("MOVISTAR_BC90","Ar2pVbtfKNoVeqncYnjY");  // Wifi details connect to
