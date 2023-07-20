@@ -17,7 +17,9 @@ We will use a NodeMCU with three switched to indicate the object to follow, that
 
 ## Set up Jetson Nano
 
-Go to [this](https://jetbot.org/master/) step by step tutorial with [this](https://drive.google.com/file/d/1G5nw0o3Q6E08xZM99ZfzQAe7-qAXxzHN/view) image.
+Go to [this](https://jetbot.org/master/) step by step tutorial to understand the Jetbot.
+
+We used this image of the Operating System to make this  [this](https://drive.google.com/file/d/1G5nw0o3Q6E08xZM99ZfzQAe7-qAXxzHN/view) project. The owner of this image is the manufacturer of the Jetbot.
 
 ## Install dependecies and download packages
 
