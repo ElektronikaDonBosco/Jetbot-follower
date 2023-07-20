@@ -10,7 +10,7 @@ ESP8266WebServer server(80);
 //---SETUP---
 void setup() {
   Serial.begin(9600);
-   WiFi.begin("MOVISTAR_BC90","Ar2pVbtfKNoVeqncYnjY");  // Wifi details connect to
+   WiFi.begin("ZYXEL 1","123456789");  // Wifi details connect to
   // initialize GPIO 5 as an output
 
   pinMode(cat, INPUT);
