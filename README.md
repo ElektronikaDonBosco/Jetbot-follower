@@ -23,7 +23,7 @@ We used this image of the Operating System to make [this](https://drive.google.c
 
 ## Install dependecies and download packages
 
-Turn on the Jetbot and it will show its IP in the display. Write that IP followed by ":8888" in a web browser. That way you will be able to see the folder of the Jetbot.
+Turn on the Jetbot and it will show its IP in the display. Write that IP followed by ":8888" in a web browser. That way you will be able to see the folders of the Jetbot.
 
 Download the files of this repository to a folder of the Jetbot. Coco file was copied from [ssd_mobilenet_v2_coco.engine](https://drive.google.com/file/d/1RnNBHPDphIOWwHCSfeMCWQ7XN3w3tKFD/view) 
 
