@@ -42,6 +42,12 @@ In that function there is code to enter the IP of the NodeMCU.
 
 ![irudia](https://github.com/ElektronikaDonBosco/Jetbot-follower/assets/45638976/da58e3e2-133a-4bb8-9ce2-c05ddb0003f0)
 
+4 - Run each one of the codes of the notebook: "live_demo_labels.ipynb", for that, select the box and click at "Run" button. The last one only must be run to stop the program.
+If you run the code previous of the last one you will be able to see the image of the camera of the Jetbot. 
+You can adjust the values of the "speed" and the "turn gain" in the screen. A good starting point is 0.20 for both parameters. 
+
+
+
 
 In the file Jetbot-follower/main.py we need to change the line 13 with ESP8266 IP address.
 
