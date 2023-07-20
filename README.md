@@ -37,11 +37,7 @@ If anyone wants to see the labels of the detected objetcs, check [this](https://
 
 2 - Turn on the Jetbot and it will show its IP in the display. Write that IP followed by ":8888" in a web browser. It will ask for the password, the default password is "jetbot".
 
-Go to the folder where we copied the files of this repository, for example, Documents. Select the document named: "live_demo_labels.ipynb".
-
-2 - In the file "live_demo_labels.ipynb", we need to set the ESP8266 (NodeMCU) IP address. The jetson nano must know the IP address of the NodeMCU, and it is set in the function. You can see the Blind-Eye instalation process by clicking [this](https://github.com/ElektronikaDonBosco/Blind-Eye) guide.
-
-![](assets/2023-05-03_101412.png)
+3 - In the file "live_demo_labels.ipynb", we need to set the ESP8266 (NodeMCU) IP address. The jetson nano must know the IP address of the NodeMCU, and it is set in the function named "transfer".
 
 
 
