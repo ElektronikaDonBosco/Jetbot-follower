@@ -46,13 +46,4 @@ In that function there is code to enter the IP of the NodeMCU.
 If you run the code previous of the last one you will be able to see the image of the camera of the Jetbot. 
 You can adjust the values of the "speed" and the "turn gain" in the screen. A good starting point is 0.20 for both parameters. 
 
-
-
-
-In the file Jetbot-follower/main.py we need to change the line 13 with ESP8266 IP address.
-
-![](assets/2023-05-03_101412.png)
-
-Also the change the wifi of the ESP8266 in line 13 of Arduino code.
-
-![](assets/2023-05-03_101304.png)
+5 - Remenber that the Jetbot will follow the detected object selected using the NodeMCU. If you do not select any object the Jetbot will not move until you select and object and it detects it.
