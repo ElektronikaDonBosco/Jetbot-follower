@@ -39,6 +39,7 @@ If anyone wants to see the labels of the detected objetcs, check [this](https://
 
 3 - In the file "live_demo_labels.ipynb", we need to set the ESP8266 (NodeMCU) IP address. The jetson nano must know the IP address of the NodeMCU, and it is set in the function named "transfer".
 In that function there is code to enter the IP of the NodeMCU.
+
 ![irudia](https://github.com/ElektronikaDonBosco/Jetbot-follower/assets/45638976/da58e3e2-133a-4bb8-9ce2-c05ddb0003f0)
 
 
