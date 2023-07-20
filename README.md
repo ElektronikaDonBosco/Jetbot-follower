@@ -12,8 +12,8 @@ We will use a NodeMCU with three switched to indicate the object to follow, that
 
 - Switches and resistors
 
-
-Procedure to make inference in Jetson Nano.
+## -ESP826MOD (NodeMCU) Sensor Module Schematic Pinout
+<img src="https://github.com/ElektronikaDonBosco/Blind-eye/blob/master/60893535def1e6e04c6f55b835bcd917.jpg" width=50% height=50%>
 
 ## Set up Jetson Nano
 
