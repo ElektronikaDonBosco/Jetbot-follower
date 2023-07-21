@@ -3,7 +3,7 @@ Before starting with the description of the project, we would like to thanks Mik
 # Jetson Nano Object detection and following
 
 In this project we will use a Jetbot (which has a Jatson nano inside) to detect different objects and to follow them. The Jetbot will detect and follow dogs, cats and people.
-We will use a NodeMCU with three switched to indicate the object to follow, that way, when we activate the "people" switch it will start detecting and following people. The comunicaton between the Jetbot and the NodeMCU will be throught a WI-Fi connection.
+We will use a NodeMCU with three switches to indicate the object to follow, that way, when we activate the "people" switch it will start detecting and following people. The comunicaton between the Jetbot and the NodeMCU will be throught a WI-Fi connection.
 
 ## Material used in the project
 - Jetbot
